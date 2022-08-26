@@ -1,56 +1,18 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
-    int maxScore(vector<int> &cardPoints, int k)
-    {
-        int sum = 0;
-        int n = cardPoints.size();
-        // find the sum of the array
-        for (int i = 0; i < cardPoints.size(); i++)
-        {
-            sum = sum + cardPoints[i];
+    int maxScore(vector<int>& cardPoints, int k) {
+        long long int tmp = 0, ans = 0, n = cardPoints.size();
+        for(int i = 0; i < k; i++)tmp += cardPoints[i];
+        ans = max(ans, tmp);
+        for(int i = k-1; i >= 0; i--){
+            tmp -= cardPoints[i];
+            tmp += cardPoints[n-k+i];
+            ans = max(ans, tmp);
         }
-
-        int min = 10000;
-        int min_sum = 0;
-        for(int j= 0; j<n-k; j++)
-        {
-            min_sum = min_sum+cardPoints[j];
-        }
-
-        if(min_sum<min)
-        {
-            min = min_sum;
-        }
-
-        for(int i = 1; ; i++)
-        {
-            if(k == 0)
-            {
-                break;
-            }
-         min_sum = min_sum - cardPoints[i-1];
-         cout <<"Subtracting "<<cardPoints[i-1]<<" " <<min_sum << endl;
-         min_sum = min_sum + cardPoints[n-k];
-         cout << "Adding " << cardPoints[n-k] << " "<<min_sum<<endl;
-         k--;
-         if(min_sum<min)
-         {
-            min = min_sum;
-            cout << "min = " << min << endl; 
-         }
-            
-        }
-
-        cout << "Total sum "<< sum << endl;
-        cout << "min_sum" << min << endl;
-
-        return sum-min;
-
-
+        return ans;
     }
 };
 
@@ -62,3 +24,13 @@ int main()
     cout << s.maxScore(cardPoints, k) << endl;
     return 0;
 }
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+//I just need to understand the problem better.
+//I think the problem is that we need to find the maximum score of the subarray of size k.
+//We can do this by finding the maximum score of the subarray of size k 
+//Then we splice the first element of the array and the last element of the array and do the same thing again.
+// we always compare if the sum is maximum or not.
+//we take the maximum of the sum and return it.
