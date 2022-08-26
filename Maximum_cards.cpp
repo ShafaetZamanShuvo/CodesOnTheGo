@@ -37,5 +37,9 @@ int maxScore(vector<int> &cardPoints, int k)
 
 int main()
 {
+    Solution s;
+    vector<int> cardPoints = {1, 2, 3, 4, 5, 6, 1};
+    int k = 3;
+    cout << s.maxScore(cardPoints, k) << endl;
     return 0;
 }
