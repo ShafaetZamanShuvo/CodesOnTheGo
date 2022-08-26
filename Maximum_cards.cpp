@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
 int maxScore(vector<int> &cardPoints, int k)
@@ -31,3 +34,8 @@ int maxScore(vector<int> &cardPoints, int k)
     return max_score;
 }
 };
+
+int main()
+{
+    return 0;
+}
