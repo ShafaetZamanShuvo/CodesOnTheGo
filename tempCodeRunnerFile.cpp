@@ -1,2 +1,9 @@
-vector<vector<int>> logs = {{1, 1}, {2, 2}, {2, 3}};
-    // int k = 4;
+
+            }
+        }
+
+        // 3rd test room_wise
+
+        int row = 0;
+        int col = 0;
+        while (col <= 6)
