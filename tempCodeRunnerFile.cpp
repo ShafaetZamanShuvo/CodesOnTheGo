@@ -1,9 +1,4 @@
-
-            }
-        }
-
-        // 3rd test room_wise
-
-        int row = 0;
-        int col = 0;
-        while (col <= 6)
+for(int i = 0; i< prefix_sum.size(); i++)
+        // {
+        //     cout << prefix_sum[i] << " ";
+        // }
